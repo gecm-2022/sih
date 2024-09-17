@@ -11,14 +11,14 @@ const Home = () => {
 
   return (
     <div className={`min-h-screen `}>
-      <section className="relative bg-orange-200/40 mx-5 my-3 h-[450px] text-right ">
-        {user && <div className="mx-3 mt-1 ">welcome {user.username}</div>}
+      <section className="relative bg-orange-200/40 mx-5 my-3 h-[450px] md:text-right ">
+        {user && <div className="mx-3 mt-1 text-right ">welcome {user.username}</div>}
         <div className="relative z-10 py-16">
-          <div className="mr-48">
-            <h2 className="text-6xl mt-20 font-extrabold text-gray-900 mb-4">
+          <div className="md:mr-48">
+            <h2 className="md:text-6xl md:block flex justify-center text-3xl mt-20  font-extrabold text-gray-900 mb-4">
               Dare to Dream
             </h2>
-            <p className="text-lg text-gray-700 font-medium">
+            <p className="text-lg text-gray-700 md:mx-0 mx-5 font-medium">
               Work to Achieve: Your Future Starts Today!
             </p>
           </div>
@@ -31,22 +31,22 @@ const Home = () => {
       </section>
 
       {/* Events Section */}
-      <section className="bg-blue-100 mx-56 my-5 bg-cover bg-center p-10 text-center">
+      <section className="bg-blue-100 md:mx-56 my-5 bg-cover bg-center p-10 text-center">
         <h2 className="text-black text-3xl mb-8 font-bold">Upcoming Events</h2>
         <ul className="list-none p-0 flex flex-wrap justify-center mb-8">
-          <li className="bg-white p-5 m-2 rounded-md shadow-sm basis-1/3">
+          <li className="bg-white p-5 m-2 rounded-md shadow-sm md:basis-1/3">
             Annual Alumni Meetup - October 15, 2024
           </li>
-          <li className="bg-white p-5 m-2 rounded-md shadow-sm basis-1/3">
+          <li className="bg-white p-5 m-2 rounded-md shadow-sm md:basis-1/3">
             Tech Talks by Alumni - November 1, 2024
           </li>
-          <li className="bg-white p-5 m-2 rounded-md shadow-sm basis-1/3">
+          <li className="bg-white p-5 m-2 rounded-md shadow-sm md:basis-1/3">
             Networking Event - December 5, 2024
           </li>
         </ul>
       </section>
 
-      <section className="bg-blue-100 mx-56 h-[230px] rounded-md p-10 mb-5">
+      <section className="bg-blue-100 md:mx-56 md:h-[230px] h-fit rounded-md p-10 md:mb-5 mb-10">
         <h2 className="text-center text-4xl font-bold mb-5">
           Join the Network
         </h2>

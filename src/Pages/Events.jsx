@@ -74,7 +74,7 @@ const Events = () => {
       </section>
 
       {/* Event List Section */}
-      <section className="mx-56 w-auto bg-blue-100 rounded-md p-5 mb-10"> 
+      <section className="md:mx-56 w-auto bg-blue-100 rounded-md p-5 mb-10"> 
         <h1 className="text-4xl font-bold text-center">EVENTS</h1>
         <hr className="m-auto w-32 border-2 rounded border-blue-400 mt-3" />
 

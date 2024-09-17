@@ -19,14 +19,14 @@ const Donations = () => {
       <div className="max-w-lg mx-auto mt-10 p-8 bg-white shadow-lg rounded-md">
         {/* Donation Amount */}
         <h2 className="text-2xl font-semibold text-center mb-6">Choose Your Donation Amount</h2>
-        <div className="flex justify-around mb-6">
+        <div className="flex md:flex-row flex-col gap-5  md:justify-around mb-6">
           <button className="bg-blue-500 text-white px-5 py-3 rounded-full hover:bg-blue-600">25</button>
           <button className="bg-blue-500 text-white px-5 py-3 rounded-full hover:bg-blue-600">50</button>
           <button className="bg-blue-500 text-white px-5 py-3 rounded-full hover:bg-blue-600">100</button>
           <input
             type="text"
             placeholder="Custom"
-            className="border border-gray-300 text-center px-4 py-3 rounded-full"
+            className="border border-gray-300 text-center md:px-4 py-3 rounded-full"
           />
         </div>
 

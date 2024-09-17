@@ -6,6 +6,10 @@ const Navbar = () => {
   const { isLogin } = useAuth();
   const [isSticky, setisSticky] = useState(false);
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +35,8 @@ const Navbar = () => {
   };
   return (
     <nav
+    onClick={toggleMenu}
+
       className={`flex items-center justify-between bg-white/40 p-4 shadow-lg   z-50 ${
         isSticky ? "sticky top-0 z-10 bg-gray-300" : ""
       }`}
@@ -39,7 +45,7 @@ const Navbar = () => {
 
       <div className="flex items-center space-x-4">
         <img src="/img/GECM_logo.png" alt="Logo" className="w-16 h-16" />
-        <h1 className="text-2xl font-bold text-black">
+        <h1 className="md:text-2xl text-xl font-bold text-black">
           <NavLink to={"/"} className={"removeLinkHover"}>
             GEC Modasa Alumni Association
           </NavLink>
@@ -47,9 +53,17 @@ const Navbar = () => {
       </div>
 
       {/* Links */}
-      <nav className="flex space-x-6 text-blue-700">
+      <nav
+        className={`humbar md:gap-5 md:justify-center fixed  z-30 top-[12vh]   md:top-0 right-0 h-full    transform ${
+          menuOpen
+            ? "translate-x-0 flex flex-col md:flex-row md:bg-white bg-[#768fab] p-5 gap-6"
+            : "translate-x-full"
+        } transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:items-center`}
+      >
         <NavLink
           to="/"
+          onClick={toggleMenu}
+
           className={(e) =>
             `hover:text-blue-900 font-bold  ${
               e.isActive
@@ -62,6 +76,8 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/NewsandEvents"
+          onClick={toggleMenu}
+
           className={(e) =>
             `hover:text-blue-900 font-bold  ${
               e.isActive
@@ -74,6 +90,8 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/alumini"
+          onClick={toggleMenu}
+
           className={(e) =>
             `hover:text-blue-900 font-bold  ${
               e.isActive
@@ -86,6 +104,8 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/donations"
+          onClick={toggleMenu}
+
           className={(e) =>
             `hover:text-blue-900 font-bold  ${
               e.isActive
@@ -98,6 +118,8 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/contactus"
+          onClick={toggleMenu}
+
           className={(e) =>
             `hover:text-blue-900 font-bold  ${
               e.isActive
@@ -110,27 +132,14 @@ const Navbar = () => {
             CONTACT US
           </div>
         </NavLink>
-      </nav>
 
-      {/* Login/Signup */}
-      <div className="flex gap-5 ">
-        {isLogin ? (
-          <NavLink
-            to="/logout"
-            className={(e) =>
-              `hover:text-blue-900 font-bold  border p-2 px-3 removeLinkHover rounded-md bg-gray-400 ${
-                e.isActive
-                  ? "text-white after:w-[100%] after:bg-[#73a6e1] "
-                  : ""
-              }`
-            }
-          >
-            Logout
-          </NavLink>
-        ) : (
-          <>
+        {/* Login/Signup */}
+        <div className="flex gap-5 ">
+          {isLogin ? (
             <NavLink
-              to="/login"
+              to="/logout"
+            onClick={toggleMenu}
+
               className={(e) =>
                 `hover:text-blue-900 font-bold  border p-2 px-3 removeLinkHover rounded-md bg-gray-400 ${
                   e.isActive
@@ -139,23 +148,50 @@ const Navbar = () => {
                 }`
               }
             >
-              Login
+              Logout
             </NavLink>
-            <NavLink
-              to="/signup"
-              className={(e) =>
-                `hover:text-blue-900 font-bold border p-2 removeLinkHover rounded-md bg-gray-400 ${
-                  e.isActive
-                    ? "text-white after:w-[100%] after:bg-[#73a6e1] "
-                    : ""
-                }`
-              }
-            >
-              Sign Up
-            </NavLink>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+            onClick={toggleMenu}
+
+                className={(e) =>
+                  `hover:text-blue-900 font-bold  border p-2 px-3 removeLinkHover rounded-md bg-gray-400 ${
+                    e.isActive
+                      ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                      : ""
+                  }`
+                }
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+            onClick={toggleMenu}
+
+                className={(e) =>
+                  `hover:text-blue-900 font-bold border p-2 removeLinkHover rounded-md bg-gray-400 ${
+                    e.isActive
+                      ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                      : ""
+                  }`
+                }
+              >
+                Sign Up
+              </NavLink>
+            </>
+          )}
+        </div>
+      </nav>
+      <div className="md:hidden mx-2 ">
+          <img
+            className="invert  cursor-pointer mx-1 m-auto flex"
+            src={menuOpen ? "/img/close.svg" : "/img/hamburger.svg"}
+            onClick={toggleMenu}
+            alt="menu"
+          />
+        </div>
     </nav>
   );
 };
