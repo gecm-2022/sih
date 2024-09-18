@@ -54,9 +54,9 @@ const Navbar = () => {
 
       {/* Links */}
       <nav
-        className={`humbar md:gap-5 md:justify-center fixed  z-30 top-[12vh]   md:top-0 right-0 h-full    transform ${
+        className={`humbar md:gap-7 md:justify-center fixed  z-30 top-[12vh]   md:top-0 right-0 h-full    transform ${
           menuOpen
-            ? "translate-x-0 flex flex-col md:flex-row md:bg-white bg-[#768fab] p-5 gap-6"
+            ? "translate-x-0 flex flex-col md:flex-row md:bg-transparent bg-[#768fab] p-5 gap-6"
             : "translate-x-full"
         } transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:items-center`}
       >
@@ -75,6 +75,20 @@ const Navbar = () => {
           HOME
         </NavLink>
         <NavLink
+          to="/profile"
+          onClick={toggleMenu}
+
+          className={(e) =>
+            `hover:text-blue-900 font-bold  ${
+              e.isActive
+                ? "text-[#61C408] after:w-[100%] after:bg-[#73a6e1]"
+                : ""
+            }`
+          }
+        >
+          PROFILE
+        </NavLink>
+        <NavLink
           to="/NewsandEvents"
           onClick={toggleMenu}
 
@@ -86,7 +100,7 @@ const Navbar = () => {
             }`
           }
         >
-          NEWS AND EVENTS
+          NEWS & EVENTS
         </NavLink>
         <NavLink
           to="/alumini"
@@ -134,7 +148,7 @@ const Navbar = () => {
         </NavLink>
 
         {/* Login/Signup */}
-        <div className="flex gap-5 ">
+        <div className="flex gap-5 ml-10 ">
           {isLogin ? (
             <NavLink
               to="/logout"

@@ -26,11 +26,9 @@ const LoginForm = () => {
   } = useForm();
 
   const onsubmit = async (data) => {
-    const e = await Login(data);
-    if (e.ok) {
-      
-      setrender(true);
-    }
+    await Login(data);
+
+    setrender(true);
   };
   useEffect(() => {
     if (render) {

@@ -12,6 +12,7 @@ import Donations from "./Pages/Donations";
 import Alumini from "./Pages/Alumini";
 import Logout from "./Pages/Logout";
 import MainLoader from "./Components/MainLoader";
+import Profile from "./Pages/Profile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -56,6 +57,7 @@ function Main() {
         <Route path="/NewsandEvents" element={<Events />} />
         <Route path="/donations" element={<Donations />} />
         <Route path="/alumini" element={<Alumini />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Error />} />
       </Routes>
       {/* <Footer /> */}

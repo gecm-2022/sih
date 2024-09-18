@@ -96,6 +96,7 @@ export const MycontextProvide = ({ children }) => {
         setUserType(res.usertype);
         userdata();
         toast.success(res.message);
+        return res.status(200).json({massage :"done"})
       } else {
         toast.error(res.error ? res.error : res);
       }
