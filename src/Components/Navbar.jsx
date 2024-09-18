@@ -148,7 +148,7 @@ const Navbar = () => {
         </NavLink>
 
         {/* Login/Signup */}
-        <div className="flex gap-5 ml-10 ">
+        <div className="flex gap-5 ml-10  ">
           {isLogin ? (
             <NavLink
               to="/logout"
@@ -157,7 +157,7 @@ const Navbar = () => {
               className={(e) =>
                 `hover:text-blue-900 font-bold  border p-2 px-3 removeLinkHover rounded-md bg-gray-400 ${
                   e.isActive
-                    ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                    ? "text-white  after:bg-[#73a6e1] "
                     : ""
                 }`
               }
@@ -171,9 +171,9 @@ const Navbar = () => {
             onClick={toggleMenu}
 
                 className={(e) =>
-                  `hover:text-blue-900 font-bold  border p-2 px-3 removeLinkHover rounded-md bg-gray-400 ${
+                  `hover:text-blue-900 font-bold  border p-2 removeLinkHover rounded-md bg-gray-400 ${
                     e.isActive
-                      ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                      ? "text-white  after:bg-[#73a6e1] "
                       : ""
                   }`
                 }
@@ -187,7 +187,7 @@ const Navbar = () => {
                 className={(e) =>
                   `hover:text-blue-900 font-bold border p-2 removeLinkHover rounded-md bg-gray-400 ${
                     e.isActive
-                      ? "text-white after:w-[100%] after:bg-[#73a6e1] "
+                      ? "text-white  after:bg-[#73a6e1] "
                       : ""
                   }`
                 }

@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useAuth } from "./context/contextapi";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
 // import Footer from "./Components/Footer";
@@ -13,6 +14,7 @@ import Alumini from "./Pages/Alumini";
 import Logout from "./Pages/Logout";
 import MainLoader from "./Components/MainLoader";
 import Profile from "./Pages/Profile";
+import Protected from"./ProtectedFiles/Protected"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +40,8 @@ function App() {
   );
 }
 function Main() {
+  const { isLogin } = useAuth();
+
   const location = useLocation();
   const bg = useMemo(() => location.pathname === "/", [location]);
 
@@ -57,7 +61,12 @@ function Main() {
         <Route path="/NewsandEvents" element={<Events />} />
         <Route path="/donations" element={<Donations />} />
         <Route path="/alumini" element={<Alumini />} />
-        <Route path="/profile" element={<Profile />} />
+
+        <Route
+          path="/profile"
+          element={<Protected element={<Profile />}  />}
+        />
+        {/* <Route path="/" element={< />} /> */}
         <Route path="*" element={<Error />} />
       </Routes>
       {/* <Footer /> */}
