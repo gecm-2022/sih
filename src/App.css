@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inconsolata{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300px;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 
 @layer components {

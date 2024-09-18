@@ -1,6 +1,6 @@
-import { useState,useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route,useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
 // import Footer from "./Components/Footer";
@@ -11,17 +11,27 @@ import LoginPage from "./Pages/LoginPage";
 import Donations from "./Pages/Donations";
 import Alumini from "./Pages/Alumini";
 import Logout from "./Pages/Logout";
-
+import MainLoader from "./Components/MainLoader";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 700);
 
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <MainLoader />;
+  }
 
   return (
     <>
       <BrowserRouter>
-      <Main/>
-      
+        <Main />
       </BrowserRouter>
     </>
   );
@@ -31,7 +41,11 @@ function Main() {
   const bg = useMemo(() => location.pathname === "/", [location]);
 
   return (
-    <div className={`${bg ? "bg-[url('/img/bg.png')]" : ""} bg-cover bg-no-repeat min-h-screen`}>
+    <div
+      className={`${
+        bg ? "bg-[url('/img/bg.png')]" : ""
+      } bg-cover bg-no-repeat min-h-screen`}
+    >
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -48,6 +62,5 @@ function Main() {
     </div>
   );
 }
-
 
 export default App;
